@@ -7,6 +7,54 @@ function pick(field, lang) {
   return field;
 }
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function renderCodeWindow(lang, container) {
+  if (!container) return;
+  const roles = SITE_DATA.roles.map(r => pick(r, lang));
+  const rolesHtml = roles
+    .map(r => `    <span class="tok-str">"${escapeHtml(r)}"</span>,`)
+    .join("\n");
+  const locationLabel = lang === "fr" ? "France" : "France";
+  const html =
+`<span class="tok-punc">{</span>
+  <span class="tok-key">name</span><span class="tok-punc">:</span> <span class="tok-str">"Kaprisky Ndo Moutsinga"</span><span class="tok-punc">,</span>
+  <span class="tok-key">roles</span><span class="tok-punc">:</span> <span class="tok-punc">[</span>
+${rolesHtml}
+  <span class="tok-punc">],</span>
+  <span class="tok-key">stack</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"PHP"</span><span class="tok-punc">,</span> <span class="tok-str">"React"</span><span class="tok-punc">,</span> <span class="tok-str">"Java"</span><span class="tok-punc">],</span>
+  <span class="tok-key">location</span><span class="tok-punc">:</span> <span class="tok-str">"${locationLabel}"</span><span class="tok-punc">,</span>
+  <span class="tok-key">openToWork</span><span class="tok-punc">:</span> <span class="tok-bool">true</span>
+<span class="tok-punc">}</span>`;
+  container.innerHTML = html;
+}
+
+function renderStats(stats, lang, container) {
+  container.innerHTML = "";
+  stats.forEach(stat => {
+    const item = document.createElement("div");
+    item.className = "stat";
+
+    const value = document.createElement("span");
+    value.className = "stat__value";
+    value.textContent = stat.value;
+    item.appendChild(value);
+
+    const label = document.createElement("span");
+    label.className = "stat__label";
+    label.textContent = pick(stat.label, lang);
+    item.appendChild(label);
+
+    container.appendChild(item);
+  });
+}
+
 function renderRoles(roles, lang, container) {
   container.innerHTML = "";
   roles.forEach((role, i) => {
@@ -32,7 +80,21 @@ function renderToolkit(toolkit, lang, container) {
     ul.className = "tags";
     category.tags.forEach(tag => {
       const li = document.createElement("li");
-      li.textContent = tag;
+      const iconPath = typeof getTechIconPath === "function" ? getTechIconPath(tag) : null;
+      if (iconPath) {
+        li.classList.add("tags__item--icon");
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("viewBox", "0 0 24 24");
+        svg.setAttribute("aria-hidden", "true");
+        const path = document.createElementNS(svgNS, "path");
+        path.setAttribute("d", iconPath);
+        svg.appendChild(path);
+        li.appendChild(svg);
+      }
+      const span = document.createElement("span");
+      span.textContent = tag;
+      li.appendChild(span);
       ul.appendChild(li);
     });
     card.appendChild(ul);
@@ -47,6 +109,25 @@ function renderProjects(projects, lang, container) {
     const article = document.createElement("article");
     article.className = "project-card";
 
+    const cover = document.createElement("div");
+    cover.className = "project-cover";
+    if (project.image) {
+      const img = document.createElement("img");
+      img.src = project.image;
+      img.alt = "";
+      img.loading = "lazy";
+      cover.appendChild(img);
+    } else {
+      cover.classList.add("project-cover--placeholder");
+      const initial = document.createElement("span");
+      initial.textContent = project.name.charAt(0);
+      cover.appendChild(initial);
+    }
+    article.appendChild(cover);
+
+    const body = document.createElement("div");
+    body.className = "project-card__body";
+
     const head = document.createElement("div");
     head.className = "project-head";
 
@@ -59,11 +140,11 @@ function renderProjects(projects, lang, container) {
     status.textContent = pick(project.status.label, lang);
     head.appendChild(status);
 
-    article.appendChild(head);
+    body.appendChild(head);
 
     const p = document.createElement("p");
     p.textContent = pick(project.description, lang);
-    article.appendChild(p);
+    body.appendChild(p);
 
     const ul = document.createElement("ul");
     ul.className = "tags";
@@ -72,7 +153,7 @@ function renderProjects(projects, lang, container) {
       li.textContent = tag;
       ul.appendChild(li);
     });
-    article.appendChild(ul);
+    body.appendChild(ul);
 
     const a = document.createElement("a");
     a.className = "project-link";
@@ -80,8 +161,9 @@ function renderProjects(projects, lang, container) {
     a.target = "_blank";
     a.rel = "noopener";
     a.textContent = pick(project.link.label, lang) + " →";
-    article.appendChild(a);
+    body.appendChild(a);
 
+    article.appendChild(body);
     container.appendChild(article);
   });
 }

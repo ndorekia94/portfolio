@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.documentElement.lang = currentLang;
 
+    renderCodeWindow(currentLang, document.getElementById("code-window-code"));
+    renderStats(SITE_DATA.stats, currentLang, document.getElementById("stats-strip"));
     renderRoles(SITE_DATA.roles, currentLang, document.getElementById("roles"));
     renderToolkit(SITE_DATA.toolkit, currentLang, document.getElementById("toolkit-grid"));
     renderProjects(SITE_DATA.projects, currentLang, document.getElementById("projects"));

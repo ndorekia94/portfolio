@@ -8,6 +8,13 @@ const SITE_DATA = {
     { fr: "Chef de Projet", en: "Project Manager" }
   ],
 
+  stats: [
+    { value: "4+", label: { fr: "ans d'expérience pro", en: "years of experience" } },
+    { value: "3", label: { fr: "métiers : Dev · QA · Chef de projet", en: "roles: Dev · QA · PM" } },
+    { value: "30+", label: { fr: "technologies pratiquées", en: "technologies used" } },
+    { value: "2", label: { fr: "pays : France & Gabon", en: "countries: France & Gabon" } }
+  ],
+
   toolkit: [
     {
       title: { fr: "Back-end", en: "Back-end" },
@@ -34,6 +41,7 @@ const SITE_DATA = {
   projects: [
     {
       name: "HopColis",
+      image: "img/hopcolis.jpg",
       status: { label: { fr: "Bêta en ligne", en: "Beta live" }, variant: "live" },
       description: {
         fr: "Co-fondatrice d'une plateforme de crowdshipping ciblant le Gabon et la Côte d'Ivoire, avec intégration de moyens de paiement mobile (Mobile Money).",
@@ -54,6 +62,7 @@ const SITE_DATA = {
     },
     {
       name: "Cabalou.net",
+      image: "img/cabalou.jpg",
       status: { label: { fr: "En ligne", en: "Live" }, variant: "live" },
       description: {
         fr: "Plateforme de réservation d'hébergements pour professionnels, avec un focus location saisonnière en Afrique. Développeuse Front-end : conception, développement et mise en production menés en autonomie.",
