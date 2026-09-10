@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaprisky Ndo Moutsinga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="wrap">
+    <span class="brand">K. Ndo Moutsinga</span>
+    <ul class="navlinks">
+      <li><a href="#profil" data-i18n="nav.profil">Profil</a></li>
+      <li><a href="#competences" data-i18n="nav.competences">Compétences</a></li>
+      <li><a href="#projets" data-i18n="nav.projets">Projets</a></li>
+      <li><a href="#experience" data-i18n="nav.experience">Expérience</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="nav-controls">
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="Changer de thème">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.6 4.6l1.85 1.85M17.55 17.55l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.6 19.4l1.85-1.85M17.55 6.45l1.85-1.85"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.2A8.4 8.4 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2Z"/></svg>
+      </button>
+      <button id="lang-toggle" class="icon-btn icon-btn--text" type="button" aria-label="Switch to English">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow" data-i18n="hero.eyebrow">Développement · Qualité logicielle · Gestion de projet</p>
+    <h1>Kaprisky Ndo Moutsinga</h1>
+    <div class="roles" id="roles" aria-label="Trois profils recherchés"></div>
+    <p class="lede" data-i18n="hero.lede">PHP/Symfony, Laravel, React et Java/Spring Boot au quotidien — avec un vrai passage par les tests logiciels et la gestion de projet pendant mon Master 2. Un profil qui touche à plusieurs métiers de la même chaîne, pas un généraliste au rabais.</p>
+    <div class="hero-meta">
+      <span class="pill" data-i18n="hero.pillLocation">France · mobile partout</span>
+      <span class="pill pill--accent" data-i18n="hero.pillStatus">Ouverte à un poste en CDI</span>
+    </div>
+    <div class="hero-actions">
+      <a class="btn btn--primary" data-contact-email="link" data-i18n="hero.btnEmail" href="#">Écrire un email</a>
+      <a class="btn" data-contact-linkedin data-i18n="hero.btnLinkedin" href="#" target="_blank" rel="noopener">Profil LinkedIn</a>
+      <a class="btn" data-contact-github data-i18n="hero.btnGithub" href="#" target="_blank" rel="noopener">Code sur GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="profil" class="section">
+  <div class="wrap">
+    <h2 data-i18n="headings.profil">Profil</h2>
+    <div class="prose" id="profil-paragraphs"></div>
+  </div>
+</section>
+
+<section id="competences" class="section section--raised">
+  <div class="wrap">
+    <h2 data-i18n="headings.competences">Boîte à outils</h2>
+    <div class="toolkit-grid" id="toolkit-grid"></div>
+  </div>
+</section>
+
+<section id="projets" class="section">
+  <div class="wrap">
+    <h2 data-i18n="headings.projets">Projets</h2>
+    <div class="projects" id="projects"></div>
+  </div>
+</section>
+
+<section id="experience" class="section section--raised">
+  <div class="wrap">
+    <h2 data-i18n="headings.experience">Expérience</h2>
+    <ol class="timeline" id="timeline"></ol>
+  </div>
+</section>
+
+<section id="formation" class="section">
+  <div class="wrap">
+    <h2 data-i18n="headings.formation">Formation</h2>
+    <div class="formation-list" id="formation-list"></div>
+  </div>
+</section>
+
+<section id="extras" class="section section--raised">
+  <div class="wrap">
+    <h2 data-i18n="headings.extras">Au-delà du code</h2>
+    <div class="toolkit-grid" id="extras-grid"></div>
+  </div>
+</section>
+
+<footer id="contact" class="section section--footer">
+  <div class="wrap">
+    <h2 data-i18n="headings.contact">Contact</h2>
+    <p data-i18n="contact.text">Ouverte à un poste en CDI, mobile partout en France. Le plus simple pour échanger : un email ou un message LinkedIn.</p>
+    <div class="hero-actions">
+      <a class="btn btn--primary" data-contact-email="text" href="#"></a>
+      <a class="btn" data-contact-linkedin data-i18n="contact.btnLinkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="foot-note">
+      <span>Kaprisky Ndo Moutsinga</span>
+      <span data-i18n="footNote">Développeuse Full Stack · Testeuse QA · Chef de Projet</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/render.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
