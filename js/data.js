@@ -11,7 +11,7 @@ const SITE_DATA = {
   stats: [
     { value: "4+", label: { fr: "ans d'expérience pro", en: "years of experience" } },
     { value: "3", label: { fr: "métiers : Dev · QA · Chef de projet", en: "roles: Dev · QA · PM" } },
-    { value: "30+", label: { fr: "technologies pratiquées", en: "technologies used" } },
+    { value: "40+", label: { fr: "technologies pratiquées", en: "technologies used" } },
     { value: "2", label: { fr: "pays : France & Gabon", en: "countries: France & Gabon" } }
   ],
 
@@ -26,7 +26,7 @@ const SITE_DATA = {
     },
     {
       title: { fr: "Bases de données", en: "Databases" },
-      tags: ["MySQL", "PostgreSQL", "Oracle", "MongoDB", "MariaDB"]
+      tags: ["MySQL", "PostgreSQL", "Oracle", "MongoDB", "MariaDB", "Cassandra"]
     },
     {
       title: { fr: "Outils & méthodes", en: "Tools & methods" },
@@ -35,6 +35,22 @@ const SITE_DATA = {
     {
       title: { fr: "Design & UI/UX", en: "Design & UI/UX" },
       tags: ["Figma", "Photoshop", "Illustrator"]
+    },
+    {
+      title: { fr: "Modélisation", en: "Modeling" },
+      tags: ["UML", "Merise"]
+    },
+    {
+      title: { fr: "Éditeurs & IDE", en: "Editors & IDEs" },
+      tags: ["PyCharm", "PhpStorm", "VS Code", "Visual Studio", "Eclipse"]
+    },
+    {
+      title: { fr: "Environnements & systèmes", en: "Environments & systems" },
+      tags: ["WAMP", "XAMPP", "Linux (Ubuntu)", "PowerShell (notions)"]
+    },
+    {
+      title: { fr: "Bureautique & gestion de projet", en: "Office & PM tools" },
+      tags: ["Word", "Excel", "PowerPoint", "Access", "Publisher", "Visio", "Microsoft Teams", "MS Project"]
     }
   ],
 
